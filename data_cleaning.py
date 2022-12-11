@@ -25,4 +25,6 @@ def clean(csv):
   closed_violations['ViolationLength'] = (closed_violations['OriginalCorrectByDate'] - closed_violations['InspectionDate']).dt.days
   closed_violations['ViolationYear'] = closed_violations['InspectionDate'].dt.year
   closed_violations = closed_violations[closed_violations['ViolationYear']>= 2000]
+  closed_violations = closed_violations[closed_violations['Class'] != 'I']
+
   return closed_violations
